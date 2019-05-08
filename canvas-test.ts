@@ -82,7 +82,6 @@ class Camera {
             var max = d.reduce((a, b) => Math.max(Math.abs(a), Math.abs(b)));
             d = d.map(x => x / max);
             var n = {x: v.x + d[0], y: v.y + d[1]};
-            console.log(i);
 
             // Determine sign of difference
             var xSign = 1;
@@ -134,7 +133,6 @@ setInterval(function()
     {
         var cubeZ = parseInt((<HTMLInputElement>document.getElementById("z-range")).value);
         var cubeX = parseInt((<HTMLInputElement>document.getElementById("x-range")).value);
-        console.log(cubeZ);
         for (let i = 0; i < cube.points.length; i++)
         {
             cube.points[i].z -= cubeZ;
