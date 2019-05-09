@@ -42,7 +42,6 @@ var Camera = /** @class */ (function () {
             var max = d.reduce(function (a, b) { return Math.max(Math.abs(a), Math.abs(b)); });
             d = d.map(function (x) { return x / max; });
             var n = { x: v.x + d[0], y: v.y + d[1] };
-            console.log(i);
             // Determine sign of difference
             var xSign = 1;
             if ((w.x - v.x) < 0) {
@@ -58,7 +57,6 @@ var Camera = /** @class */ (function () {
                 n = { x: n.x + d[0], y: n.y + d[1] };
             }
         }
-        console.log("Done");
     };
     Camera.prototype.WorldToCamera = function (p) {
         //return {x: (p.z * (this.width - 2 * p.x))/(2 * this.focalLength),
@@ -79,7 +77,6 @@ var camera = new Camera(100, 640, 480, "myCanvas");
 setInterval(function () {
     var cubeZ = parseInt(document.getElementById("z-range").value);
     var cubeX = parseInt(document.getElementById("x-range").value);
-    console.log(cubeZ);
     for (var i = 0; i < cube.points.length; i++) {
         cube.points[i].z -= cubeZ;
     }
@@ -89,13 +86,3 @@ setInterval(function () {
     camera.DrawBackground();
     camera.DrawPolygon(cube);
 }, 200);
-function update() {
-    var cubeZ = parseInt(document.getElementById("z-range").value);
-    console.log(cubeZ);
-    for (var i = 0; i < cube.points.length; i++) {
-        cube.points[i].z -= cubeZ;
-    }
-    console.log(cube);
-    camera.DrawBackground();
-    camera.DrawPolygon(cube);
-}

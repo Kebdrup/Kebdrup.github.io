@@ -102,7 +102,6 @@ class Camera {
                 n = {x: n.x + d[0], y: n.y + d[1]};
             }
         }
-        console.log("Done");
     }
 
     WorldToCamera(p: Point) : Point
@@ -146,15 +145,3 @@ setInterval(function()
 
     }, 200);
 
-function update()
-{
-    var cubeZ = parseInt((<HTMLInputElement>document.getElementById("z-range")).value);
-    console.log(cubeZ);
-    for (let i = 0; i < cube.points.length; i++)
-    {
-        cube.points[i].z -= cubeZ;
-    }
-    console.log(cube);
-    camera.DrawBackground();
-    camera.DrawPolygon(cube);
-}
